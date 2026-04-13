@@ -1,0 +1,329 @@
+
+/* About Section - Optimizado para móviles */
+.about-section {
+  background-color: black;
+  padding: 60px 16px;
+  min-height: 100vh;
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+  padding: 0 16px;
+  font-weight: 490;
+  
+}
+
+.about-title-ob {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+  padding: 0 16px;
+  font-weight: 490;
+  padding-top: 100px;  
+}
+
+.about-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.title-underline {
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, blue);
+  margin: 0 auto 24px;
+  border-radius: 2px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.about-text {
+  color: white;
+  padding: 0 8px;
+}
+
+.about-intro {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: 300;
+}
+
+.about-intro strong {
+  color: #229CE2;
+  font-weight: 600;
+}
+
+.about-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: white;
+  text-align: left;
+}
+
+.about-description strong {
+  color: #229CE2;
+  font-weight: 600;
+}
+
+.about-skills {
+  background-color: black;
+  padding: 24px 16px;
+  border-radius: 12px;
+  border: 3px #229CE2;
+  align-items: center;
+}
+
+.skills-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 24px;
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+.skill-list-container {
+  width: 100%;
+}
+
+.skill-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: center;
+  justify-items: center;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-list-technology {
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 10px 16px;
+  width: 100%;
+ 
+}
+
+.education-object {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+  padding: 0 16px;
+  font-weight: 490;
+  font-family: 'Courier New', Courier, monospace;
+
+
+}
+
+.education-period {
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+
+/* Tablets pequeñas y móviles grandes */
+@media (min-width: 480px) {
+  .about-section {
+    padding: 70px 24px;
+  }
+  
+  .about-title {
+    font-size: 2.25rem;
+  }
+  
+  .about-subtitle {
+    font-size: 1.625rem;
+  }
+  
+  .about-intro {
+    font-size: 1.15rem;
+  }
+  
+  .skills-title {
+    font-size: 1.375rem;
+  }
+  
+  .skill-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  
+  .skill-list-technology {
+    font-size: 1rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .about-section {
+    padding: 80px 40px;
+  }
+  
+  .about-header {
+    margin-bottom: 50px;
+  }
+  
+  .about-title {
+    font-size: 2.75rem;
+  }
+  
+  .about-subtitle {
+    font-size: 1.75rem;
+  }
+  
+  .title-underline {
+    width: 160px;
+    height: 4px;
+  }
+  
+  .about-content {
+    gap: 50px;
+  }
+  
+  .about-intro {
+    font-size: 1.2rem;
+  }
+  
+  .about-description {
+    font-size: 1.05rem;
+    text-align: justify;
+  }
+  
+  .about-skills {
+    padding: 32px 24px;
+    border: 4px solid blue;
+  }
+  
+  .skills-title {
+    font-size: 1.5rem;
+  }
+  
+  .skill-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Desktop pequeño */
+@media (min-width: 968px) {
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  
+  .about-title {
+    font-size: 3rem;
+  }
+  
+  .title-underline {
+    width: 200px;
+  }
+  
+  .about-text {
+    padding: 0;
+  }
+  
+  .about-intro {
+    font-size: 1.25rem;
+  }
+  
+  .skills-title {
+    font-size: 1.75rem;
+  }
+  
+  .about-skills {
+    padding: 40px;
+    border: 5px solid blue;
+  }
+  
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+  }
+  
+  .skill-list-technology {
+    width: auto;
+    padding: 12px 20px;
+  }
+}
+
+/* Desktop grande */
+@media (min-width: 1200px) {
+  .about-section {
+    padding: 80px 20px;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+  .about-title {
+    font-size: 1.75rem;
+  }
+  
+  .about-subtitle {
+    font-size: 1.375rem;
+  }
+  
+  .about-intro {
+    font-size: 1rem;
+  }
+  
+  .about-description {
+    font-size: 0.95rem;
+  }
+  
+  .skills-title {
+    font-size: 1.125rem;
+  }
+  
+  .skill-list {
+    gap: 10px;
+  }
+  
+  .skill-list-technology {
+    font-size: 0.875rem;
+    padding: 8px 12px;
+  }
+}

@@ -1,0 +1,23 @@
+.footer-section {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+
+
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-text {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+}
+
+.footer-image-container {
+    display: flex;
+    justify-content: start;
+}

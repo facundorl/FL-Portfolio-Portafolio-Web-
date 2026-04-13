@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "express": "^5.2.1",
+    "sequelize": "^6.37.7",
+    "sql2": "^0.0.1"
+  }
+}

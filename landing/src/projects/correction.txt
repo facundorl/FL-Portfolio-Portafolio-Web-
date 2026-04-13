@@ -1,0 +1,82 @@
+import React, { useState } from "react";
+import './portfolio-fl.css';
+
+const PortfolioFL = () => {
+    // Estado para el carrusel
+    const [currentImage, setCurrentImage] = useState(0);
+    
+    // Array de imágenes - reemplaza estas rutas con tus imágenes reales
+    const images = [
+        '/ruta/a/imagen1.jpg',
+        '/ruta/a/imagen2.jpg',
+        '/ruta/a/imagen3.jpg'
+    ];
+
+    // Función para imagen anterior
+    const prevImage = () => {
+        setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    };
+
+    // Función para imagen siguiente
+    const nextImage = () => {
+        setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    };
+
+    return (
+        <section className="project-portfolio-section">
+            <div className="project-portfolio-container">
+                <div className="project-content">
+                    <h1 className="portfolio-title">¿De que trata este proyecto?</h1>
+                    <div className="title-underline"></div>
+                    
+                    <div className="project-text">
+                        <p className="project-description">
+                            <strong className="strong-project">FL Portfolio</strong> es mi primer proyecto web independiente enfocandome en Frontend y Backend.
+                            El objetivo del mismo es poder compartir mediante la web los proyectos los cuales estoy trabajando para que otras personas puedan ver mi trayectoria.
+                        </p>
+
+                        <p className="project-description-II">
+                            En esta pagina, podés encontrar mis proyectos justo debajo de la sección "Sobre Mi", podrás ver uno por uno en un Carrusel con el titulo <strong className="strong-project">"Mis Proyectos"</strong>.
+                            el cual con las flechas azules vas a poder deslizar para verlos (Proximamente habrán mas proyectos).
+                        </p>
+                        
+                        <div className="project-description-II">
+                            <div className="coming-title">Posibles actualizaciones a futuro</div>
+                            <div className="title-underline"></div>
+                            <div className="next-change-container">
+                                <ul className="changes-list">
+                                    <li className="change-element-list">Un registros de cambios por cada actualización (Changelog)</li>
+                                    <li className="change-element-list">Sidebar (Barra lateral) para navegar por las secciones del sitio</li>
+                                    <li className="change-element-list">¡Mas de mis proyectos que compatir!</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="image-carousel">
+                    <button className="carousel-btn prev" onClick={prevImage}>‹</button>
+                    <div className="carousel-image-container">
+                        <img 
+                            src={images[currentImage]} 
+                            alt={`Proyecto ${currentImage + 1}`} 
+                            className="carousel-image" 
+                        />
+                    </div>
+                    <button className="carousel-btn next" onClick={nextImage}>›</button>
+                    <div className="carousel-dots">
+                        {images.map((_, index) => (
+                            <span 
+                                key={index}
+                                className={`dot ${index === currentImage ? 'active' : ''}`}
+                                onClick={() => setCurrentImage(index)}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default PortfolioFL;

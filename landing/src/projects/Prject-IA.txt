@@ -1,0 +1,132 @@
+.image-carousel {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-image-container {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 100, 255, 0.3);
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-btn {
+    position: absolute;
+    background-color: rgba(0, 100, 255, 0.8);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 100, 255, 1);
+    transform: scale(1.1);
+}
+
+.carousel-btn.prev {
+    left: -25px;
+}
+
+.carousel-btn.next {
+    right: -25px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: -30px;
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: blue;
+    width: 30px;
+    border-radius: 6px;
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+--------------------------  JSX ----------------------------------------------
+
+
+    return (
+        <section className="project-portfolio-section">
+            <div className="project-portfolio-container">
+                <div className="project-content">
+                    <div className="project-text">
+                        <h1 className="portfolio-title">¿De que trata este proyecto?</h1>
+                        <div className="title-underline"></div>
+                        
+                        <p className="project-description">
+                            <strong className="strong-project">FL Portfolio</strong> es mi primer proyecto web independiente enfocandome en Frontend y Backend.
+                            El objetivo del mismo es poder compartir mediante la web los proyectos los cuales estoy trabajando para que otras personas puedan ver mi trayectoria.
+                        </p>
+
+                        <p className="project-description-II">
+                            En esta pagina, podés encontrar mis proyectos justo debajo de la sección "Sobre Mi", podrás ver uno por uno en un Carrusel con el titulo <strong className="strong-project">"Mis Proyectos"</strong>.
+                            el cual con las flechas azules vas a poder deslizar para verlos (Proximamente habrán mas proyectos).
+                        </p>
+                        
+                        <h1 className="coming-title">Posibles actualizaciones a futuro</h1>
+                        <div className="title-underline"></div>
+                        <div className="next-change-container">
+                            <ul className="changes-list">
+                                <div className="change-element-list">Un registros de cambios por cada actualización (Changelog)</div>
+                                <div className="change-element-list">Sidebar (Barra lateral) para navegar por las secciones del sitio</div>
+                                <div className="change-element-list">¡Mas de mis proyectos que compatir"</div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="image-carousel">
+                    <button className="carousel-btn prev" onClick={prevImage}>‹</button>
+                    <div className="carousel-image-container">
+                        <img src={images[currentImage]} alt={`Proyecto ${currentImage + 1}`} className="carousel-image" />
+                    </div>
+                    <button className="carousel-btn next" onClick={nextImage}>›</button>
+                    <div className="carousel-dots">
+                        {images.map((_, index) => (
+                            <span 
+                                key={index}
+                                className={`dot ${index === currentImage ? 'active' : ''}`}
+                                onClick={() => setCurrentImage(index)}
+                            ></span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
