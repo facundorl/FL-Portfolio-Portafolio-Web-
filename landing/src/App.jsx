@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import BarLoader from "react-spinners/BarLoader";
+import RingLoader from "react-spinners/RingLoader";
 import Header from './components/Header';
 import About from './components/About';
 import Carrousel from './components/Carrousel';
@@ -13,7 +13,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 4500);
+    const timer = setTimeout(() => setLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -22,10 +22,8 @@ function App() {
       <div className="App">
         {loading ? (
           <div className="loader">
-            <div className="loader-logo"><img src={logo} alt="Logo" /></div>
-            <BarLoader color="blue" width={200} />
-            <h2 className="loader-loading">Cargando...</h2>
-            <h3 className="loader-translate-advise">(Porfavor desactiva el traductor de Google para evitar errores ortográficos)</h3>
+            <RingLoader color="#229CE2" width={300} />
+
           </div>
         ) : (
           <Routes>
@@ -38,7 +36,7 @@ function App() {
                 <Footer />
               </>
             } />
-            
+
             {/* Ruta del proyecto */}
             <Route path="/portfolio-fl" element={<PortfolioFL />} />
           </Routes>

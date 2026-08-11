@@ -1,37 +1,135 @@
-
+/* ─── Fondo GIF ─────────────────────────────────────────────── */
+/*
+  Cuando tengas tu gif:
+    1. Copialo a la carpeta  /public/  con el nombre  bg.gif
+    2. La clase .header-bg ya apunta a  /bg.gif  — no hace falta
+       tocar nada más.
+  Si querés otro nombre, cambiá background-image abajo.
+*/
 
 .header-container {
   height: 100vh;
   width: 100%;
-  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
+/* Capa del gif — ocupa todo el header */
+.header-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/bg.gif');
+  /* ← cambiá el nombre si querés */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Sin gif todavía → fondo negro */
+  background-color: black;
+  z-index: 0;
+}
+
+/* Overlay semitransparente para que el texto se lea bien */
+.header-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+/* ─── Contenido ──────────────────────────────────────────────── */
+
 .header-content {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
 
+/* ─── Logo ───────────────────────────────────────────────────── */
+
 .logo-header {
   width: 120px;
   margin-bottom: 20px;
 }
+
+.animate-logo {
+  opacity: 0;
+  animation: fadeDown 0.8s ease forwards;
+  animation-delay: 0s;
+}
+
+/* ─── Animación letra por letra ──────────────────────────────── */
 
 .header-title {
   color: white;
   font-size: 5rem;
   margin: 0;
   font-family: "Inter", sans-serif;
-  font-weight: 230;
+  font-weight: 300;
   letter-spacing: 3px;
+  display: block;
 }
+
+/* Cada <span class="letter"> entra desde abajo con fade */
+.letter {
+  display: inline-block;
+  opacity: 0;
+  animation: letterIn 0.5s ease forwards;
+}
+
+@keyframes letterIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.85);
+    filter: blur(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* ─── Fade-up genérico para subtítulo y texto ────────────────── */
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Textos ─────────────────────────────────────────────────── */
 
 .header-title2 {
   color: white;
@@ -55,12 +153,15 @@
   opacity: 0.8;
 }
 
+/* ─── Flecha scroll ──────────────────────────────────────────── */
+
 .scroll-arrow {
   position: absolute;
   bottom: 30px;
   color: white;
   font-size: 2.5rem;
   cursor: pointer;
+  z-index: 2;
   animation: bounce 1.5s infinite;
   transition: transform 0.3s ease;
 }
@@ -70,28 +171,32 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(10px);
   }
 }
 
-/* Responsive */
+/* ─── Responsive ─────────────────────────────────────────────── */
+
 @media (max-width: 768px) {
   .header-title {
     font-size: 3.5rem;
   }
-  
+
   .header-title2 {
     font-size: 1.2rem;
   }
-  
+
   .header-subtitle {
     font-size: 1.5rem;
   }
-  
+
   .logo-header {
     width: 100px;
   }
@@ -101,15 +206,15 @@
   .header-title {
     font-size: 2.5rem;
   }
-  
+
   .header-title2 {
     font-size: 1rem;
   }
-  
+
   .header-subtitle {
     font-size: 1.2rem;
   }
-  
+
   .scroll-text {
     font-size: 0.9rem;
   }
