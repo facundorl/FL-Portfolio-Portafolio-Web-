@@ -6,6 +6,7 @@ import Header from './components/Header';
 import About from './components/About';
 import Carrousel from './components/Carrousel';
 import PortfolioFL from './projects/portfolio-fl';
+import ViperScale from './projects/viperScale'
 import Footer from './components/Footer';
 import logo from './logo-FL-AZUL.png';
 
@@ -39,6 +40,7 @@ function App() {
 
             {/* Ruta del proyecto */}
             <Route path="/portfolio-fl" element={<PortfolioFL />} />
+            <Route path="/viperScale" element={<ViperScale />} />
           </Routes>
         )}
       </div>
